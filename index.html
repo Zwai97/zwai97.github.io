@@ -99,7 +99,7 @@ section { padding-block: 88px 0; }
 .stat span { font-size: 0.8rem; color: var(--muted); line-height: 1.35; }
 
 /* Devices (shared) */
-.stage { position: relative; height: 470px; }
+.stage { position: relative; height: 560px; }
 .win { position: absolute; background: var(--screen); color: var(--screen-ink); border-radius: 12px; box-shadow: var(--shadow); border: 1px solid var(--line); overflow: hidden; }
 .win-bar { height: 26px; display: flex; align-items: center; gap: 6px; padding: 0 10px; background: var(--sunk); border-bottom: 1px solid var(--line); }
 .win-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
@@ -163,8 +163,8 @@ section { padding-block: 88px 0; }
 
 /* Hero composition */
 .stage .win.sd-win { width: 400px; height: 270px; right: 0; top: 30px; }
-.stage .phone.wallet { left: 0; top: 120px; transform: rotate(-4deg); }
-.stage .phone.lab { right: 40px; top: 190px; width: 180px; transform: rotate(3deg); z-index: 2; }
+.stage .phone.wallet { left: 0; top: 40px; transform: rotate(-4deg); }
+.stage .phone.lab { right: 30px; top: 150px; width: 180px; transform: rotate(3deg); z-index: 2; }
 
 /* Real screenshots */
 .shot { display: block; width: 100%; height: auto; }
@@ -174,6 +174,12 @@ section { padding-block: 88px 0; }
 .thumbs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; position: relative; }
 .thumbs button { font: 500 0.82rem var(--f-body); padding: 7px 14px; border-radius: 99px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; }
 .thumbs button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.phone.real { aspect-ratio: auto; }
+.phone.real .scr { height: auto; display: block; }
+.phone.real img { display: block; width: 100%; height: auto; }
+.visual.real .phone.real { position: relative; width: 250px; justify-self: center; }
+.visual.real .win[hidden], .visual.real .phone[hidden] { display: none; }
 
 /* Featured work */
 .feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-block: 40px; border-top: 1px solid var(--line); }
@@ -194,6 +200,9 @@ section { padding-block: 88px 0; }
 .proof div { display: grid; gap: 2px; }
 .proof b { font: 700 1.2rem var(--f-display); font-variant-numeric: tabular-nums; }
 .proof span { font: 0.72rem var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+
+.live { justify-self: start; font: 600 0.9rem var(--f-body); color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+.hero { overflow-x: clip; }
 
 /* More work */
 .more { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
@@ -267,7 +276,7 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
 /* Responsive */
 @media (max-width: 960px) {
   .hero .inner { grid-template-columns: 1fr; padding-block: 48px 8px; }
-  .stage { height: 420px; max-width: 520px; width: 100%; margin: 0 auto; }
+  .stage { height: 540px; max-width: 520px; width: 100%; margin: 0 auto; }
   .feature, .feature.flip { grid-template-columns: 1fr; gap: 28px; }
   .feature.flip .visual { order: 0; }
   .more { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -276,10 +285,10 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
 @media (max-width: 640px) {
   .nav ul { display: none; }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 16px; }
-  .stage { height: 380px; }
-  .stage .win.sd-win { width: 300px; height: 210px; top: 0; }
-  .stage .phone.wallet { width: 160px; top: 110px; }
-  .stage .phone.lab { width: 150px; top: 170px; right: 0; }
+  .stage { height: 440px; }
+  .stage .win.sd-win { width: 300px; top: 0; }
+  .stage .phone.wallet { width: 150px; top: 60px; }
+  .stage .phone.lab { width: 140px; top: 120px; right: 0; }
   .visual { height: 360px; }
   .more { grid-template-columns: 1fr; }
   .proof { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -332,27 +341,8 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
         <div class="win-bar"><i></i><i></i><i></i><span>SmartDent — Home</span></div>
         <img class="shot" src="images/sd-home.webp" alt="SmartDent home screen: today's appointments, waiting room and next patient" width="1920" height="1333">
       </div>
-      <div class="phone wallet rise"><div class="scr">
-        <div class="notch"></div>
-        <div class="w-top">Wallet <span></span></div>
-        <div class="w-bal"><small>Current balance</small><b>$ 2,480.50</b><small>USD · main wallet</small></div>
-        <div class="w-acts"><div class="qr"><i></i>QR pay</div><div><i></i>Deposit</div><div><i></i>Send</div></div>
-        <div class="w-list"><h6>Recent</h6>
-          <div class="tx"><i></i><span>QR transfer<small>Today, 10:12</small></span><b>−120</b></div>
-          <div class="tx"><i></i><span>Deposit<small>Yesterday</small></span><b class="in">+500</b></div>
-          <div class="tx"><i></i><span>Settlement<small>2 Nov</small></span><b>−75</b></div>
-        </div>
-      </div></div>
-      <div class="phone lab rise"><div class="scr">
-        <div class="notch"></div>
-        <div class="lp-head"><b>Labpedia</b><div class="lp-search">Search lab tests</div></div>
-        <div class="lp-chips"><span class="on">Blood</span><span>Urine</span><span>Hormones</span></div>
-        <div class="lp-list">
-          <div class="lp-item"><b>HbA1c</b><i class="tube" style="background:#7a5bd1"></i><span class="ar">الخضاب السكري</span></div>
-          <div class="lp-item"><b>Ferritin</b><i class="tube" style="background:#d14b4b"></i><span class="ar">الفيريتين</span></div>
-          <div class="lp-item"><b>TSH</b><i class="tube" style="background:#d1a84b"></i><span class="ar">الهرمون المنبه للدرق</span></div>
-        </div>
-      </div></div>
+      <div class="phone wallet real rise"><div class="scr"><img src="images/wallet-home.webp" alt="ExoNexis wallet dashboard" width="575" height="1280"></div></div>
+      <div class="phone lab real rise"><div class="scr"><img src="images/lab-list.webp" alt="Labpedia list of lab tests" width="575" height="1280"></div></div>
     </div>
   </div>
 </header>
@@ -363,23 +353,17 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
       <div class="sec-head">
         <span class="eyebrow">Selected work</span>
         <h2>Three products I built end to end</h2>
-        <p class="lead">Client code is private, so each project shows what I built and the commit history behind it. SmartDent screens are real screenshots with demo data; the other two are simplified illustrations.</p>
+        <p class="lead">Client code is private, so each project shows what I built and the commit history behind it. All screens are real screenshots, taken from test accounts with demo data.</p>
       </div>
 
       <article class="feature">
-        <div class="visual">
-          <div class="phone" style="left:50%;top:50%;transform:translate(-50%,-50%);width:220px"><div class="scr">
-            <div class="notch"></div>
-            <div class="w-top">Wallet <span></span></div>
-            <div class="w-bal"><small>Current balance</small><b>$ 2,480.50</b><small>USD · main wallet</small></div>
-            <div class="w-acts"><div class="qr"><i></i>QR pay</div><div><i></i>Deposit</div><div><i></i>Send</div></div>
-            <div class="w-list"><h6>Recent</h6>
-              <div class="tx"><i></i><span>QR transfer<small>Today, 10:12</small></span><b>−120</b></div>
-              <div class="tx"><i></i><span>Deposit<small>Yesterday</small></span><b class="in">+500</b></div>
-              <div class="tx"><i></i><span>Settlement<small>2 Nov</small></span><b>−75</b></div>
-              <div class="tx"><i></i><span>QR received<small>1 Nov</small></span><b class="in">+60</b></div>
-            </div>
-          </div></div>
+        <div class="visual real gallery">
+          <div class="phone real"><div class="scr"><img data-main src="images/wallet-home.webp" alt="ExoNexis wallet dashboard" width="575" height="1280"></div></div>
+          <div class="thumbs" role="tablist" aria-label="Wallet app screens">
+            <button type="button" role="tab" aria-selected="true" data-kind="phone" data-src="images/wallet-home.webp" data-alt="ExoNexis wallet dashboard">Dashboard</button>
+            <button type="button" role="tab" aria-selected="false" data-kind="phone" data-src="images/wallet-history.webp" data-alt="ExoNexis transaction history">Transactions</button>
+            <button type="button" role="tab" aria-selected="false" data-kind="phone" data-src="images/wallet-language.webp" data-alt="ExoNexis language picker with Arabic, English, Kurdish and Chinese">Languages</button>
+          </div>
         </div>
         <div class="feat-copy">
           <span class="org"><i style="background:var(--c-orix)"></i>Orix Solutions / ExoNexis · FinTech</span>
@@ -396,15 +380,15 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
       </article>
 
       <article class="feature flip">
-        <div class="visual real" id="sd-gallery">
+        <div class="visual real gallery">
           <div class="win">
-            <div class="win-bar"><i></i><i></i><i></i><span id="sd-cap">SmartDent — Home</span></div>
-            <img class="shot" id="sd-main" src="images/sd-home.webp" alt="SmartDent home screen" width="1920" height="1333">
+            <div class="win-bar"><i></i><i></i><i></i><span data-cap>SmartDent — Home</span></div>
+            <img class="shot" data-main src="images/sd-home.webp" alt="SmartDent home screen" width="1920" height="1333">
           </div>
           <div class="thumbs" role="tablist" aria-label="SmartDent screens">
-            <button type="button" role="tab" aria-selected="true" data-src="images/sd-home.webp" data-cap="SmartDent — Home" data-alt="SmartDent home screen">Home</button>
-            <button type="button" role="tab" aria-selected="false" data-src="images/sd-calendar.webp" data-cap="SmartDent — Calendar" data-alt="SmartDent day calendar with two doctors">Calendar</button>
-            <button type="button" role="tab" aria-selected="false" data-src="images/sd-patient.webp" data-cap="SmartDent — Patient file" data-alt="SmartDent patient file with the dental chart">Patient file</button>
+            <button type="button" role="tab" aria-selected="true" data-kind="win" data-src="images/sd-home.webp" data-cap="SmartDent — Home" data-alt="SmartDent home screen">Home</button>
+            <button type="button" role="tab" aria-selected="false" data-kind="win" data-src="images/sd-calendar.webp" data-cap="SmartDent — Calendar" data-alt="SmartDent day calendar with two doctors">Calendar</button>
+            <button type="button" role="tab" aria-selected="false" data-kind="win" data-src="images/sd-patient.webp" data-cap="SmartDent — Patient file" data-alt="SmartDent patient file with the dental chart">Patient file</button>
           </div>
         </div>
         <div class="feat-copy">
@@ -422,23 +406,23 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
       </article>
 
       <article class="feature">
-        <div class="visual">
-          <div class="phone" style="left:50%;top:50%;transform:translate(-50%,-50%);width:220px"><div class="scr">
-            <div class="notch"></div>
-            <div class="lp-head"><b>Labpedia</b><div class="lp-search">Search lab tests</div></div>
-            <div class="lp-chips"><span class="on">Blood</span><span>Urine</span><span>Hormones</span></div>
-            <div class="lp-list">
-              <div class="lp-item"><b>HbA1c</b><i class="tube" style="background:#7a5bd1"></i><span class="ar">الخضاب السكري</span></div>
-              <div class="lp-item"><b>Ferritin</b><i class="tube" style="background:#d14b4b"></i><span class="ar">الفيريتين</span></div>
-              <div class="lp-item"><b>TSH</b><i class="tube" style="background:#d1a84b"></i><span class="ar">الهرمون المنبه للدرق</span></div>
-              <div class="lp-item"><b>CRP</b><i class="tube" style="background:#4b8bd1"></i><span class="ar">البروتين التفاعلي</span></div>
-            </div>
-            <div class="lp-lock">Trial: 5 days left · Upgrade</div>
-          </div></div>
+        <div class="visual real gallery">
+          <div class="phone real" data-frame="phone"><div class="scr"><img data-main-phone src="images/lab-list.webp" alt="Labpedia list of lab tests" width="575" height="1280"></div></div>
+          <div class="win" data-frame="win" hidden>
+            <div class="win-bar"><i></i><i></i><i></i><span data-cap>Labpedia dashboard</span></div>
+            <img class="shot" data-main-win src="images/lab-dash-tests.webp" alt="Labpedia admin dashboard" width="1600" height="719">
+          </div>
+          <div class="thumbs" role="tablist" aria-label="Labpedia screens">
+            <button type="button" role="tab" aria-selected="true" data-kind="phone" data-src="images/lab-list.webp" data-alt="Labpedia list of lab tests">Tests</button>
+            <button type="button" role="tab" aria-selected="false" data-kind="phone" data-src="images/lab-detail.webp" data-alt="Labpedia test page in Arabic">Test page</button>
+            <button type="button" role="tab" aria-selected="false" data-kind="phone" data-src="images/lab-groups.webp" data-alt="Labpedia test groups">Groups</button>
+            <button type="button" role="tab" aria-selected="false" data-kind="win" data-src="images/lab-dash-tests.webp" data-cap="Labpedia dashboard — Tests" data-alt="Labpedia dashboard table of 772 tests">Dashboard</button>
+            <button type="button" role="tab" aria-selected="false" data-kind="win" data-src="images/lab-dash-group.webp" data-cap="Labpedia dashboard — Group editor" data-alt="Labpedia dashboard editing a test group in three languages">Editor</button>
+          </div>
         </div>
         <div class="feat-copy">
           <span class="org"><i style="background:var(--c-proitx)"></i>ProITX · Medical education</span>
-          <h3>Labpedia app &amp; dashboard</h3>
+          <h3>DMedLab (Labpedia) app &amp; dashboard</h3>
           <p>An Arabic reference app for medical-laboratory tests, with paid plans. I built the mobile app, the admin dashboard the content team writes in, and parts of the API.</p>
           <ul>
             <li>Subscriptions, free-trial expiry and device-bound activation; in-app update checks.</li>
@@ -447,6 +431,7 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
           </ul>
           <div class="stack"><span>Flutter</span><span>Flutter Web</span><span>Laravel</span><span>MySQL</span></div>
           <div class="proof"><div><b>997</b><span>commits</span></div><div><b>2.6 yr</b><span>Dec 23 – Jul 26</span></div><div><b>3</b><span>repositories</span></div></div>
+          <a class="live" href="https://apps.apple.com/ae/app/dmedlab/id6451325863" target="_blank" rel="noopener">Live on the App Store as DMedLab ↗</a>
         </div>
       </article>
 
@@ -600,13 +585,19 @@ document.getElementById("lanes").innerHTML = axis + `</div></div>` + LANES.map((
     <div class="track"><div class="bar" style="left:${pct(a)};width:${pct(b - a)};background:var(${col})" title="${label}">${label}</div></div></div>`;
 }).join("");
 
-// SmartDent screenshot switcher
-document.querySelectorAll("#sd-gallery [data-src]").forEach(btn => btn.addEventListener("click", () => {
-  const img = document.getElementById("sd-main");
-  img.src = btn.dataset.src; img.alt = btn.dataset.alt;
-  document.getElementById("sd-cap").textContent = btn.dataset.cap;
-  document.querySelectorAll("#sd-gallery [data-src]").forEach(b => b.setAttribute("aria-selected", String(b === btn)));
-}));
+// Screenshot galleries: each button swaps the image, and the frame when it switches phone <-> desktop
+document.querySelectorAll(".gallery").forEach(g => {
+  const buttons = g.querySelectorAll("[data-src]");
+  buttons.forEach(btn => btn.addEventListener("click", () => {
+    const kind = btn.dataset.kind;
+    const phone = g.querySelector('[data-frame="phone"]'), win = g.querySelector('[data-frame="win"]');
+    if (phone && win) { phone.hidden = kind !== "phone"; win.hidden = kind !== "win"; }
+    const img = g.querySelector(kind === "win" ? "[data-main-win], .win [data-main]" : "[data-main-phone], .phone [data-main]") || g.querySelector("[data-main]");
+    img.src = btn.dataset.src; img.alt = btn.dataset.alt;
+    const cap = g.querySelector("[data-cap]"); if (cap && btn.dataset.cap) cap.textContent = btn.dataset.cap;
+    buttons.forEach(b => b.setAttribute("aria-selected", String(b === btn)));
+  }));
+});
 
 // Copy email
 document.querySelectorAll("[data-copy]").forEach(btn => btn.addEventListener("click", () => {
