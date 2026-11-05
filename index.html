@@ -166,6 +166,15 @@ section { padding-block: 88px 0; }
 .stage .phone.wallet { left: 0; top: 120px; transform: rotate(-4deg); }
 .stage .phone.lab { right: 40px; top: 190px; width: 180px; transform: rotate(3deg); z-index: 2; }
 
+/* Real screenshots */
+.shot { display: block; width: 100%; height: auto; }
+.stage .win.sd-win { height: auto; }
+.visual.real { height: auto; padding: 28px; display: grid; gap: 14px; }
+.visual.real .win { position: relative; }
+.thumbs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; position: relative; }
+.thumbs button { font: 500 0.82rem var(--f-body); padding: 7px 14px; border-radius: 99px; border: 1px solid var(--line); background: var(--surface); color: var(--muted); cursor: pointer; }
+.thumbs button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
 /* Featured work */
 .feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; padding-block: 40px; border-top: 1px solid var(--line); }
 .feature:first-of-type { border-top: 0; }
@@ -320,24 +329,8 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
 
     <div class="stage" aria-hidden="true">
       <div class="win sd-win rise">
-        <div class="win-bar"><i></i><i></i><i></i><span>SmartDent — Clinic</span></div>
-        <div class="sd">
-          <div class="sd-side"><i class="on"></i><i></i><i></i><i></i></div>
-          <div class="sd-main">
-            <div class="sd-title">Today's appointments <span>Tue 4 Nov</span></div>
-            <div class="sd-cols">
-              <div class="sd-card"><h6>Schedule</h6>
-                <div class="appt"><time>09:00</time><b>R. Haddad</b><span class="pill">In chair</span></div>
-                <div class="appt"><time>09:40</time><b>M. Khoury</b><span class="pill wait">Waiting</span></div>
-                <div class="appt"><time>10:15</time><b>S. Nasser</b><span class="pill wait">Waiting</span></div>
-                <div class="appt"><time>11:00</time><b>L. Saleh</b><span></span></div>
-              </div>
-              <div class="sd-card"><h6>Upper jaw</h6>
-                <div class="tooth-grid"><i></i><i></i><i class="d"></i><i></i><i></i><i class="t"></i><i></i><i></i><i></i><i></i><i></i><i class="d"></i><i></i><i></i><i></i><i></i></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="win-bar"><i></i><i></i><i></i><span>SmartDent — Home</span></div>
+        <img class="shot" src="images/sd-home.webp" alt="SmartDent home screen: today's appointments, waiting room and next patient" width="1920" height="1333">
       </div>
       <div class="phone wallet rise"><div class="scr">
         <div class="notch"></div>
@@ -370,7 +363,7 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
       <div class="sec-head">
         <span class="eyebrow">Selected work</span>
         <h2>Three products I built end to end</h2>
-        <p class="lead">Client code is private, so each project shows what I built and the commit history behind it. The screens are simplified illustrations, not screenshots.</p>
+        <p class="lead">Client code is private, so each project shows what I built and the commit history behind it. SmartDent screens are real screenshots with demo data; the other two are simplified illustrations.</p>
       </div>
 
       <article class="feature">
@@ -403,29 +396,15 @@ footer .inner { display: flex; justify-content: space-between; flex-wrap: wrap; 
       </article>
 
       <article class="feature flip">
-        <div class="visual">
-          <div class="win" style="left:6%;right:6%;top:50%;transform:translateY(-50%);height:300px">
-            <div class="win-bar"><i></i><i></i><i></i><span>SmartDent — Clinic</span></div>
-            <div class="sd">
-              <div class="sd-side"><i class="on"></i><i></i><i></i><i></i><i></i></div>
-              <div class="sd-main">
-                <div class="sd-title">Today's appointments <span>Tue 4 Nov</span></div>
-                <div class="sd-cols">
-                  <div class="sd-card"><h6>Schedule</h6>
-                    <div class="appt"><time>09:00</time><b>R. Haddad</b><span class="pill">In chair</span></div>
-                    <div class="appt"><time>09:40</time><b>M. Khoury</b><span class="pill wait">Waiting</span></div>
-                    <div class="appt"><time>10:15</time><b>S. Nasser</b><span class="pill wait">Waiting</span></div>
-                    <div class="appt"><time>11:00</time><b>L. Saleh</b><span></span></div>
-                    <div class="appt"><time>11:45</time><b>A. Darwish</b><span></span></div>
-                  </div>
-                  <div class="sd-card"><h6>Upper jaw</h6>
-                    <div class="tooth-grid"><i></i><i></i><i class="d"></i><i></i><i></i><i class="t"></i><i></i><i></i><i></i><i></i><i></i><i class="d"></i><i></i><i></i><i></i><i></i></div>
-                    <h6>Lower jaw</h6>
-                    <div class="tooth-grid"><i></i><i class="t"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="d"></i><i></i><i></i><i></i><i></i><i></i></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div class="visual real" id="sd-gallery">
+          <div class="win">
+            <div class="win-bar"><i></i><i></i><i></i><span id="sd-cap">SmartDent — Home</span></div>
+            <img class="shot" id="sd-main" src="images/sd-home.webp" alt="SmartDent home screen" width="1920" height="1333">
+          </div>
+          <div class="thumbs" role="tablist" aria-label="SmartDent screens">
+            <button type="button" role="tab" aria-selected="true" data-src="images/sd-home.webp" data-cap="SmartDent — Home" data-alt="SmartDent home screen">Home</button>
+            <button type="button" role="tab" aria-selected="false" data-src="images/sd-calendar.webp" data-cap="SmartDent — Calendar" data-alt="SmartDent day calendar with two doctors">Calendar</button>
+            <button type="button" role="tab" aria-selected="false" data-src="images/sd-patient.webp" data-cap="SmartDent — Patient file" data-alt="SmartDent patient file with the dental chart">Patient file</button>
           </div>
         </div>
         <div class="feat-copy">
@@ -620,6 +599,14 @@ document.getElementById("lanes").innerHTML = axis + `</div></div>` + LANES.map((
   return `<div class="lane"><div class="lane-name">${name}<small>${sub}</small></div>
     <div class="track"><div class="bar" style="left:${pct(a)};width:${pct(b - a)};background:var(${col})" title="${label}">${label}</div></div></div>`;
 }).join("");
+
+// SmartDent screenshot switcher
+document.querySelectorAll("#sd-gallery [data-src]").forEach(btn => btn.addEventListener("click", () => {
+  const img = document.getElementById("sd-main");
+  img.src = btn.dataset.src; img.alt = btn.dataset.alt;
+  document.getElementById("sd-cap").textContent = btn.dataset.cap;
+  document.querySelectorAll("#sd-gallery [data-src]").forEach(b => b.setAttribute("aria-selected", String(b === btn)));
+}));
 
 // Copy email
 document.querySelectorAll("[data-copy]").forEach(btn => btn.addEventListener("click", () => {
